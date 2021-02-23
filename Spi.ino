@@ -1,3 +1,4 @@
+//digital potentiometer using SPI and changing brightness of LED using voltage input instead of PWM
 //Include SPI library
 #include <SPI.h>
 
