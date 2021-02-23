@@ -2,14 +2,13 @@
 //Include SPI library
 #include <SPI.h>
 
-//When Using the SPI library, you only have to worr
-//By Default, 11 = MOSI, 12 = MISO, 13 = CLK
+//By Default, 11 = MOSI, 12 = MISO, 13 = CLK set automatically
 int SS = 10;   //SPI Slave Select
 
 void setup()
 {
   
-  //Set Pin Direction
+  //Set Pin Directions
   pinMode(SS, OUTPUT);
   
   //Initialize SPI
@@ -17,8 +16,8 @@ void setup()
   
 }
 
-//set 1 LED to the specififed level
-void setLed(int reg, int level)
+//fxn to set led to the specififed level
+void setLed(int reg, int level)//4 registers available
 {
   digitalWrite(SS, LOW);
   SPI.transfer(reg);
@@ -28,7 +27,7 @@ void setLed(int reg, int level)
 
 void loop()
 {
-  for(int i=0; i<=2; i++)
+  for(int i=0; i<=2; i++) //each led rises to full brightness then to 0 and then moves to the next one
   {
     for (int j=50; j<=255; j++)
     {
